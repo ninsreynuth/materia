@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { ApiService } from '../dialog/service/api.service';
+import {
+  FormGroup,
+  Validators,
+  FormControl,
+  FormBuilder,
+  NgForm,
+} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-form-login',
@@ -7,9 +15,14 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
   styleUrls: ['./form-login.component.css'],
 })
 export class FormLoginComponent implements OnInit {
-  constructor() {}
+  hide = true;
+  constructor(private apiService: ApiService, private http: HttpClientModule) {}
   form = new FormGroup({
-    userName: new FormControl('', Validators.required),
+    userName: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(10),
+    ]),
     password: new FormControl('', Validators.required),
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
@@ -17,8 +30,35 @@ export class FormLoginComponent implements OnInit {
     confirmPassword: new FormControl('', Validators.required),
   });
 
-  ngOnInit(): void {}
-  get username() {
-    return this.form.get('username');
+  message: string = '';
+
+  ngOnInit(): void {
+    sessionStorage.getItem('user');
+  }
+  get userName() {
+    return this.form.get('userName');
+  }
+
+  login() {
+    const login = this.apiService.getUser({
+      username: this.form.get('userName')?.getRawValue(),
+      password: this.form.get('password')?.getRawValue(),
+    });
+    console.log(login);
   }
 }
+
+// confirmPassword() {
+//   console.log({
+//     password: this.form.get('password')?.getRawValue(),
+//     confirmPassword: this.form.get('confirmPassword')?.getRawValue(),
+//   });
+//   if (
+//     this.form.get('password')?.getRawValue() !==
+//     this.form.get('confirmPassword')?.getRawValue()
+//   ) {
+//   } else {
+//     this.message = '';
+//   }
+// }
+// }

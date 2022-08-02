@@ -19,6 +19,7 @@ import { MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./form-builder.component.css'],
 })
 export class FormBuilderComponent implements OnInit {
+  showFiller = false;
   @Output() toggleSideBarFoeMe: EventEmitter<any> = new EventEmitter();
   constructor(private dialog: MatDialog, private api: ApiService) {}
   ngAfterViewInit() {

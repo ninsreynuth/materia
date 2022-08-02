@@ -2,15 +2,31 @@
   <mat-tab-group class="content-box">
     <!-- login -->
     <mat-tab label="login">
-      <form class="login row">
-        <mat-form-field class="col-md-12">
-          <mat-label>Username</mat-label>
-          <input matInput placeholder="Username">
-        </mat-form-field>
-        <mat-form-field class="password col-md-12">
-          <mat-label>Password</mat-label>
-          <input matInput placeholder="password">
-        </mat-form-field>
+      <form class="login row" [formGroup]="form">
+        <div>
+          <mat-form-field class="col-md-12 mb-0">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Username" formControlName="userName">
+            <mat-error *ngIf="userName?.touched && userName ?.invalid" class="text-danger">input your userName.
+            </mat-error>
+            <mat-error *ngIf="userName?.errors?.['minlength']">UserName should be minimum
+              {{ userName?.errors?.['minlength'].requiredLength }} character</mat-error>
+            <mat-error *ngIf="userName?.errors?.['maxlength']">UserName should be minimum
+              {{ userName?.errors?.['maxlength'].requiredLength }} character</mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="password col-md-12 mb-0">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="password" [type]="hide ? 'password' : 'text'" formControlName="password">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="userName?.touched && userName ?.invalid" class="text-danger">input your password.
+            </mat-error>
+          </mat-form-field>
+        </div>
         <div class="btnLogin">
           <button mat-raised-button type="submit" color="warn" routerLink="/form-builder">Login</button>
         </div>

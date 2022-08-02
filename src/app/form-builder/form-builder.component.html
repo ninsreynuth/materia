@@ -7,7 +7,7 @@
      <img class="logo" src="https://cdn-icons-png.flaticon.com/512/8087/8087135.png" alt="">
      <mat-icon mat-button [matMenuTriggerFor]="menu">
        <mat-menu #menu="matMenu">
-         <!-- <button mat-menu-item>Item 2</button> -->
+
          <mat-icon class="logout" routerLink="/form-login">logout
          </mat-icon>
 
@@ -28,17 +28,17 @@
        <mat-list-item>
          <mat-icon>home</mat-icon>Home
        </mat-list-item>
-       <mat-list-item>
+       <mat-list-item routerLink="/account">
          <mat-icon>person</mat-icon>Account
        </mat-list-item>
-       <mat-list-item>
+       <mat-list-item routerLink="/about">
          <mat-icon>info</mat-icon>AboutUs
        </mat-list-item>
-       <mat-list-item>
+       <mat-list-item routerLink="/contact">
          <mat-icon>call</mat-icon>ContactUs
        </mat-list-item>
        <mat-divider></mat-divider>
-       <mat-list-item>
+       <mat-list-item routerLink="/can-help">
          <mat-icon>help</mat-icon>Help
        </mat-list-item>
      </mat-nav-list>
@@ -47,7 +47,6 @@
      <mat-toolbar class="Toolbar" style="background: rgb(0, 242, 255);">
        <span>My App</span>
        <span class="example-spacer"></span>
-       <button mat-raised-button color="accent" (click)="openDialog()">Open Dialog</button>
        <button mat-icon-button color="warn" class="example-icon favorite-icon"
          aria-label="Example icon-button with heart icon">
          <mat-icon>favorite</mat-icon>
@@ -58,6 +57,7 @@
      </mat-toolbar>
      <div class="container">
        <div style="margin-top: 10px;">
+         <button mat-raised-button color="accent" (click)="openDialog()">Open Dialog</button>
          <mat-form-field appearance="standard">
            <mat-label>Filter</mat-label>
            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>

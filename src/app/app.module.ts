@@ -35,6 +35,7 @@ import { AccountComponent } from './form-builder/account/account.component';
 import { AboutComponent } from './form-builder/about/about.component';
 import { ContactComponent } from './form-builder/contact/contact.component';
 import { CanHelpComponent } from './form-builder/can-help/can-help.component';
+import { HeaderComponent } from './header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { CanHelpComponent } from './form-builder/can-help/can-help.component';
     AboutComponent,
     ContactComponent,
     CanHelpComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,55 @@
+<div class="content-body">
+  <mat-tab-group class="content-box">
+    <!-- login -->
+    <mat-tab label="login">
+      <form class="login row">
+        <mat-form-field class="col-md-12">
+          <mat-label>Username</mat-label>
+          <input matInput placeholder="Username">
+        </mat-form-field>
+        <mat-form-field class="password col-md-12">
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="password">
+        </mat-form-field>
+        <div class="btnLogin">
+          <button mat-raised-button type="submit" color="warn" routerLink="/form-builder">Login</button>
+        </div>
+      </form>
+    </mat-tab>
+    <!-- signUp -->
+    <mat-tab label="signUp">
+      <form class="login row">
+        <table class="example-full-width row" cellspacing="0">
+          <!-- fistName -->
+          <mat-form-field class="firstName col-md-6" appearance="fill">
+            <mat-label>First name</mat-label>
+            <input matInput>
+          </mat-form-field>
+          <!-- lastName -->
+          <mat-form-field class="lastName col-md-6" appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input matInput>
+          </mat-form-field>
+        </table>
+        <!-- email -->
+        <mat-form-field class="email" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput>
+        </mat-form-field>
+        <!-- password -->
+        <mat-form-field class="password password-mb" appearance="fill">
+          <mat-label>password</mat-label>
+          <input matInput>
+        </mat-form-field>
+        <!-- confirm password -->
+        <mat-form-field class="confirmPassword mt-0" appearance="fill">
+          <mat-label>confirm password</mat-label>
+          <input matInput>
+        </mat-form-field>
+        <div class="btnLogin">
+          <button mat-raised-button type="submit" color="warn" routerLink="/form-builder">SignUp</button>
+        </div>
+      </form>
+    </mat-tab>
+  </mat-tab-group>
+</div>

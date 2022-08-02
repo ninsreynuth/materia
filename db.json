@@ -1,0 +1,50 @@
+{
+  "productList": [
+    {
+      "productName": "mango",
+      "category": "fruit",
+      "freshness": "Brand new",
+      "price": 20,
+      "comment": "good",
+      "date": "2022-07-21T17:00:00.000Z",
+      "id": 8
+    },
+    {
+      "productName": "u",
+      "category": "fruit",
+      "freshness": "Brand new",
+      "price": 1,
+      "comment": "hgj",
+      "date": "2022-07-28T17:00:00.000Z",
+      "id": 9
+    },
+    {
+      "productName": "efds",
+      "category": "ds",
+      "freshness": "Brand new",
+      "price": 12,
+      "comment": "dsx",
+      "date": "2022-07-11T17:00:00.000Z",
+      "id": 10
+    },
+    {
+      "productName": "dragon fruite",
+      "category": "fruit",
+      "freshness": "Brand new",
+      "price": 12,
+      "comment": "good",
+      "date": "2022-07-10T17:00:00.000Z",
+      "id": 11
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

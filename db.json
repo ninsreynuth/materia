@@ -37,12 +37,9 @@
       "id": 11
     }
   ],
-  "users": [
+  "signUpUsers": [
     {
-      "id": 1,
-      "name": "User 1",
-      "username": "user_1",
-      "password": "123"
+      
     }
   ],
   "comments": [

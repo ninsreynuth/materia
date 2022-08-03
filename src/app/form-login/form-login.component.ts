@@ -8,6 +8,7 @@ import {
   NgForm,
 } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-login',
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class FormLoginComponent implements OnInit {
   hide = true;
-  constructor(private apiService: ApiService, private http: HttpClientModule) {}
+  public signUp !: FormGroup;
+  constructor(private apiService: ApiService, private http: HttpClientModule, private formBuilder: FormBuilder, private router:Router) {}
   form = new FormGroup({
     userName: new FormControl('', [
       Validators.required,
@@ -33,8 +35,14 @@ export class FormLoginComponent implements OnInit {
   message: string = '';
 
   ngOnInit(): void {
-    sessionStorage.getItem('user');
-  }
+    this.signUp= this.formBuilder.group({
+      firstName:[''],
+      lastName:[''],
+      email:[''],
+      password:[''],
+
+    })
+    }
   get userName() {
     return this.form.get('userName');
   }
@@ -45,6 +53,12 @@ export class FormLoginComponent implements OnInit {
       password: this.form.get('password')?.getRawValue(),
     });
     console.log(login);
+  }
+  singUp(){
+    this.http.post<any>("http://localhost:3000/signUpUsers", this.signUp.value).subscribe(res=>{
+      alert ("signUp Successfull")
+      this.signUp.reset(['logIn']);
+    })
   }
 }
 

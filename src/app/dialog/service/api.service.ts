@@ -14,8 +14,7 @@ export class ApiService {
         return res;
       })
     );
-  }asdfghjkl;'
-  '
+  }
   getProduct() {
     return this.http.get<any>('http://localhost:3000/productList').pipe(
       map((res) => {

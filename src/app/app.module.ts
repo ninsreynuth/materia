@@ -31,10 +31,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
-import { AccountComponent } from './form-builder/account/account.component';
-import { AboutComponent } from './form-builder/about/about.component';
-import { ContactComponent } from './form-builder/contact/contact.component';
-import { CanHelpComponent } from './form-builder/can-help/can-help.component';
 import { HeaderComponent } from './header/header.component';
 @NgModule({
   declarations: [
@@ -42,10 +38,6 @@ import { HeaderComponent } from './header/header.component';
     FormBuilderComponent,
     DialogComponent,
     FormLoginComponent,
-    AccountComponent,
-    AboutComponent,
-    ContactComponent,
-    CanHelpComponent,
     HeaderComponent,
   ],
   imports: [

@@ -1,0 +1,36 @@
+.content-body {
+  height: 100%;
+  width: 100%;
+  background-image: radial-gradient(rgb(0, 242, 255), rgb(7, 116, 122));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content-box {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: 900px;
+  background-color: aliceblue;
+}
+.content-body .mat-card {
+  padding: 0px;
+}
+.login {
+  padding: 20px;
+}
+.btnLogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login {
+  margin-bottom: 20px;
+}
+.password {
+  margin-bottom: 30px;
+}
+.btnLogin {
+  margin-bottom: 20px;
+}
+.password-mb {
+  margin-bottom: 0;
+}

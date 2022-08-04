@@ -1,0 +1,56 @@
+<div class="content-body">
+  <mat-tab-group class="content-box">
+    <!-- signUp -->
+    <mat-tab label="signUp">
+      <form class="login row" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="userName" appearance="fill">
+          <mat-label>userName</mat-label>
+          <input matInput placeholder="Username" formControlName="userName">
+          <!-- <mat-error *ngIf="userName.hasError('email') && !userName.hasError('required')">input your
+            userName
+          </mat-error> -->
+          <mat-error *ngIf="userName.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <!-- email -->
+        <mat-form-field class="email" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput placeholder="Email" formControlName="email" email>
+          <mat-error *ngIf="email.hasError('required')">
+            Email is required
+          </mat-error>
+        </mat-form-field>
+        <!-- password -->
+        <mat-form-field class="password password-mb" appearance="fill">
+          <mat-label>password</mat-label>
+          <input matInput placeholder="password" [type]="hide ? 'password' : 'text'" formControlName="password">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="password.hasError('required')">
+            Please enter your password 6-10 digit composed nof number and letters
+          </mat-error>
+        </mat-form-field>
+        <!-- confirm password -->
+        <mat-form-field class="confirmPassword" appearance="fill">
+          <mat-label>confirm Password</mat-label>
+          <input matInput placeholder="confirmPassword" [type]="hide ? 'confirmPassword' : 'text'"
+            formControlName="confirmPassword">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="confirmPassword.hasError('required')">
+            confirm password <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <div class="btnLogin">
+          <button mat-raised-button type="submit" color="warn">SignUp</button>
+        </div>
+        <a routerLink="/form-login">Already register? please go to login!!</a>
+      </form>
+    </mat-tab>
+  </mat-tab-group>
+</div>

@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs';
 
 @Injectable({
@@ -7,15 +7,13 @@ import { map } from 'rxjs';
 })
 export class ApiService {
   constructor(private http: HttpClient) {}
-
   postProduct(data: any) {
     return this.http.post<any>('http://localhost:3000/productList', data).pipe(
       map((res) => {
         return res;
       })
     );
-  }asdfghjkl;'
-  '
+  }
   getProduct() {
     return this.http.get<any>('http://localhost:3000/productList').pipe(
       map((res) => {
@@ -43,19 +41,31 @@ export class ApiService {
   }
 
   getUser(data: any) {
-    const res = this.http.get<any>('http://localhost:3000/users');
-
-    console.log(data);
-    res.subscribe((users) => {
-      return users.filter((user: any) => {
+    const res = this.http.get<any>('http://localhost:3000/signUp');
+    const user = res.subscribe((users) => {
+      return users.find((user: any) => {
         return (
-          user.username === data.username && user.password === data.password
+          user.userName === data.username && user.password === data.password
         );
       });
     });
+
+    return user;
   }
 
-  storeUser(data: any, id: number) {
-    return this.http.put<any>('http://localhost:3000/users', data);
+  storeUser(data: any) {
+    return this.http.post<any>('http://localhost:3000/users', data);
+  }
+  // addUser
+  addUser(user: any) {
+    // let users = [];
+    // if (localStorage.getItem('Users')) {
+    //   const localUser = localStorage.getItem('Users') ?? '{}';
+    //   users = JSON.parse(localUser);
+    //   users = [user, ...users];
+    // } else {
+    //   users = [user];
+    // }
+    // localStorage.setItem('Users', JSON.stringify(user));
   }
 }

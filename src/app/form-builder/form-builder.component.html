@@ -1,20 +1,3 @@
- <mat-toolbar class="Toolbar" style="background: none">
-   <mat-toolbar-row>
-     <button mat-icon-button>
-       <mat-icon (click)="sidenav.toggle();">menu</mat-icon>
-     </button>
-     <span class="example-spacer"></span>
-     <img class="logo" src="https://cdn-icons-png.flaticon.com/512/8087/8087135.png" alt="">
-     <mat-icon mat-button [matMenuTriggerFor]="menu">
-       <mat-menu #menu="matMenu">
-
-         <mat-icon class="logout" routerLink="/form-login">logout
-         </mat-icon>
-
-       </mat-menu>expand_more
-     </mat-icon>
-   </mat-toolbar-row>
- </mat-toolbar>
  <mat-drawer-container class="example-container">
    <mat-drawer class="menu" style="width: 200px;" mode="over" #sidenav>
      <div class="profile">
@@ -45,8 +28,20 @@
    </mat-drawer>
    <mat-drawer-content>
      <mat-toolbar class="Toolbar" style="background: rgb(0, 242, 255);">
+       <button mat-icon-button>
+         <mat-icon (click)="sidenav.toggle();">menu</mat-icon>
+       </button>
        <span>My App</span>
        <span class="example-spacer"></span>
+       <img class="logo" src="https://cdn-icons-png.flaticon.com/512/8087/8087135.png" alt="">
+       <mat-icon mat-button [matMenuTriggerFor]="menu">
+         <mat-menu #menu="matMenu">
+
+           <mat-icon class="logout" routerLink="/form-login">logout
+           </mat-icon>
+
+         </mat-menu>expand_more
+       </mat-icon>
        <button mat-icon-button color="warn" class="example-icon favorite-icon"
          aria-label="Example icon-button with heart icon">
          <mat-icon>favorite</mat-icon>

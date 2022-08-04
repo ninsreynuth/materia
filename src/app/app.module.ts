@@ -36,6 +36,8 @@ import { AboutComponent } from './form-builder/about/about.component';
 import { ContactComponent } from './form-builder/contact/contact.component';
 import { CanHelpComponent } from './form-builder/can-help/can-help.component';
 import { HeaderComponent } from './header/header.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +49,7 @@ import { HeaderComponent } from './header/header.component';
     ContactComponent,
     CanHelpComponent,
     HeaderComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,6 +78,9 @@ import { HeaderComponent } from './header/header.component';
     MatTreeModule,
     MatDividerModule,
     MatListModule,
+    MatCardModule,
+    MatTreeModule,
+    MatCheckboxModule,
   ],
   providers: [{ provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }],
   bootstrap: [AppComponent],

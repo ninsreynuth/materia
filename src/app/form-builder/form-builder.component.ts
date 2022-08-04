@@ -52,6 +52,9 @@ export class FormBuilderComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllProduct();
+    const users = localStorage.getItem('users');
+    if (users === null) {
+    }
   }
   openDialog() {
     this.dialog

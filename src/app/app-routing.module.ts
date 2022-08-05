@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'form-builder', component: FormBuilderComponent },
   { path: 'about', component: AboutComponent },
   { path: 'account', component: AccountComponent },
+  { path: 'account/:id', component: AccountComponent },
   { path: 'can-help', component: CanHelpComponent },
 ];
 

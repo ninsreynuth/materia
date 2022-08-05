@@ -11,7 +11,9 @@ import {
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ErrorStateMatcher } from '@angular/material/core';
+
 export class MyErrorStateMatcher implements ErrorStateMatcher {
+  title = 'api-app';
   isErrorState(
     control: FormControl | null,
     form: FormGroupDirective | NgForm | null
@@ -41,16 +43,8 @@ export class SignUpComponent implements OnInit {
     private api: ApiService
   ) {}
   ngOnInit(): void {
-    // this.signUpForm = this.formBuilder.group(
-    //   {
-    //     firstName: ['', Validators.required],
-    //     lastName: ['', Validators.required],
-    //     email: ['', Validators.required],
-    //     password: ['', Validators.required],
-    //     confirmPassword: ['', Validators.required],
-    //   },
-    //   { Validators: this.passwordMatchingValidator }
-    // );
+    // console.log('decrpted data ', this.api.getData('id'));
+    // validator
     this.signUpForm = this.formBuilder.group(
       {
         userName: ['', Validators.required],
@@ -81,24 +75,17 @@ export class SignUpComponent implements OnInit {
     return this.signUpForm.get('confirmPassword') as FormControl;
   }
   onSubmit() {
-    // this.http
-    //   .post('http://localhost:3000/users', this.signUpForm.getRawValue())
-    //   .subscribe(
-    //     (res) => {
-    //       alert('signUp Successfully');
-    //       this.signUpForm.reset();
-    //       this.router.navigate(['/form-builder']);
-    //     },
-    //     (err) => {
-    //       alert('something went wrong');
-    //     }
-    //   );
     if (this.signUpForm.valid) {
       this.api.storeUser(this.signUpForm.getRawValue()).subscribe({
         next: (res) => {
           alert('login is successfully');
+
+          localStorage.setItem(
+            'userName',
+            this.signUpForm.getRawValue().userName
+          );
           this.signUpForm.reset();
-          localStorage.setItem('users', JSON.stringify(this.user));
+
           this.router.navigate(['/form-builder']);
         },
         error: () => {
